@@ -1,0 +1,20 @@
+{
+  "name": "gabisa-ngoding-language",
+  "version": "0.1.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i -g typescript ts-node && ts-node bin/gabisa-ngoding tes.gabisa-ngoding"
+  },
+  "bin": "./bin/gabisa-ngoding.js",
+  "keywords": [],
+  "author": "adjidev",
+  "license": "ISC",
+  "description": "isagufisdfbjkdbfdsj",
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "@types/yargs": "^17.0.34"
+  },
+  "dependencies": {
+    "yargs": "^18.0.0"
+  }
+}
