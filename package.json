@@ -1,6 +1,6 @@
 {
   "name": "gabisa-ngoding-language",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "main": "index.js",
   "scripts": {
     "test": "npm i -g typescript ts-node && ts-node bin/gabisa-ngoding tes.gabisa-ngoding"
