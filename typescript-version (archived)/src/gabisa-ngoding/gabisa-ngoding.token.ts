@@ -26,8 +26,8 @@ const KataKunci: Record<string, TokenType> = {
     "gabisa": TokenType.TOKEN_VAL_INCREMENT,
     "ngoding": TokenType.TOKEN_VAL_DECREMENT,
     //-----------------------------------------//
-    "dong": TokenType.TOKEN_OUTPUT,
-    "ajarin": TokenType.TOKEN_INPUT
+    "ajarin": TokenType.TOKEN_OUTPUT,
+    "dong": TokenType.TOKEN_INPUT
 }
 
 export default KataKunci
