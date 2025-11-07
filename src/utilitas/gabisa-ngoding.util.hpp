@@ -8,8 +8,8 @@
 #pragma once
 
 #define MAJOR_VERSION 1
-#define PATCH_VERSION 0
-#define MINOR_VERSION 0
+#define MINOR_VERSION 1
+#define PATCH_VERSION 2
 #define AUTHORS "adjidev, espacioo"
 
 #include <iostream>
@@ -37,8 +37,8 @@ namespace fs = std::filesystem;
 
 class GabisaNgoding_Util {
 private:
-    std::string version = "1.0.0";
-    std::string author = "adjidev, espacioo";
+    std::string version = std::to_string(MAJOR_VERSION) + "." + std::to_string(MINOR_VERSION) + "." + std::to_string(PATCH_VERSION);
+    std::string author = AUTHORS;
 
 public:
     /**

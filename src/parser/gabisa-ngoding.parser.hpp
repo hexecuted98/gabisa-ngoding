@@ -28,7 +28,6 @@ private:
     size_t posisi;
     std::stack<LoopNode *> loopStack;
 
-    // Helper methods
     bool Habis() const
     {
         return posisi >= tokens.size() ||
@@ -87,7 +86,6 @@ public:
 
         auto loopNode = std::make_unique<LoopNode>(tokenHAI.baris, tokenHAI.kolom);
 
-        // Simpan state loop sebelumnya
         LoopNode *previousLoop = loopStack.empty() ? nullptr : loopStack.top();
         loopStack.push(loopNode.get());
 
@@ -101,7 +99,7 @@ public:
                 {
                 case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_SEPUH:
                     CETAK_INFO("Menemukan SEPUH, mengakhiri loop");
-                    Ambil(); // Konsumsi SEPUH
+                    Ambil(); 
                     loopStack.pop();
                     return loopNode;
 
@@ -110,7 +108,6 @@ public:
                     break;
 
                 default:
-                    // Token instruksi biasa
                     if (IsInstructionToken(token.jenis))
                     {
                         const auto &instrToken = Ambil();
@@ -123,20 +120,18 @@ public:
                     {
                         CETAK_WARN("Token tidak diharapkan dalam loop: " +
                                    TokenToString(token.jenis) + ", dilewati");
-                        Ambil(); // Lewati token yang tidak diharapkan
+                        Ambil(); 
                     }
                     break;
                 }
             }
 
-            // Jika sampai di sini, berarti SEPUH tidak ditemukan
             CETAK_ERROR("Loop tidak ditutup dengan SEPUH (mulai di baris " +
                         std::to_string(tokenHAI.baris) + ")");
             throw std::runtime_error("Loop tidak ditutup dengan SEPUH");
         }
         catch (...)
         {
-            // Restore previous loop state
             loopStack.pop();
             if (previousLoop)
             {
@@ -174,7 +169,6 @@ public:
                     throw std::runtime_error("SEPUH tanpa HAI");
 
                 default:
-                    // Token instruksi biasa
                     if (IsInstructionToken(token.jenis))
                     {
                         const auto &instrToken = Ambil();
@@ -186,7 +180,6 @@ public:
                     }
                     else
                     {
-                        // Lewati token yang tidak relevan (seperti KOMENTAR, EOF, dll)
                         CETAK_WARN("Token dilewati: " + TokenToString(token.jenis));
                         Ambil();
                     }

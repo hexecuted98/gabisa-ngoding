@@ -45,15 +45,15 @@ public:
         {
             switch (token.jenis)
             {
-            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_AKU: // >
+            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_AKU:     // >
                 bytecode.push_back(0x01);
                 break;
 
-            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_PUH: // <
+            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_PUH:     // <
                 bytecode.push_back(0x02);
                 break;
 
-            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_GABISA: // +
+            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_GABISA:  // +
                 bytecode.push_back(0x03);
                 break;
 
@@ -61,20 +61,20 @@ public:
                 bytecode.push_back(0x04);
                 break;
 
-            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_AJARIN: // .
+            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_AJARIN:  // .
                 bytecode.push_back(0x05);
                 break;
 
-            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_DONG: // ,
+            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_DONG:    // ,
                 bytecode.push_back(0x06);
                 break;
 
-            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_HAI: // [
+            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_HAI:     // [
                 bytecode.push_back(0x07);
                 loopStack.push(bytecode.size() - 1);
                 break;
 
-            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_SEPUH: // ]
+            case GabisaNgoding_TokenType::GABISA_NGODING_TOKEN_SEPUH:   // ]
                 if (loopStack.empty())
                 {
                     CETAK_ERROR("SEPUH tanpa HAI di baris " + std::to_string(token.baris));
@@ -106,12 +106,12 @@ public:
 
         CETAK_INFO("Kompilasi selesai! Ukuran bytecode: " + std::to_string(bytecode.size()) + " bytes");
 
-        std::cout << "Bytecode hasil kompilasi: ";
-        for (size_t i = 0; i < bytecode.size(); i++)
-        {
-            std::cout << std::hex << static_cast<int>(bytecode[i]) << " ";
-        }
-        std::cout << std::dec << std::endl;
+        // std::cout << "Bytecode hasil kompilasi: ";
+        // for (size_t i = 0; i < bytecode.size(); i++)
+        // {
+        //     std::cout << std::hex << static_cast<int>(bytecode[i]) << " ";
+        // }
+        // std::cout << std::dec << std::endl;
 
         return bytecode;
     }
